@@ -23,3 +23,23 @@ function take_snapshot(){
 function filter_tint(){
     tint_color = document.getElementById("color_name").value;
 }
+
+
+
+function setup() {
+  createCanvas(500,500);
+
+  background(200);
+
+  // White ellipse.
+  ellipseMode(RADIUS);
+  fill(255);
+  ellipse(100, 100, 30, 30);
+
+  // Gray ellipse.
+  ellipseMode(CENTER);
+  fill(100);
+  ellipse(100, 100, 30, 30);
+
+  
+}
