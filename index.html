@@ -1,41 +1,27 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <title>Introducción a p5.js</title>
+  <title>Aplicación web filtro en tiempo real usando la red neurona PoseNet</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+  <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
 
-  <style type="text/css">
-  h3
-  {
-    font-size: 25px !important;
-  }
-  canvas {
-  	border:1px solid black;
-  }
-  </style>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
 
-<body>
-    <div class="container">
-        <h3 class="btn btn-primary">Introduccion a p5.js</h3>
+<body background="background.jpg">
+    <center>
+        <h3 class="btn btn-info">Filtro en tiempo real</h3>
         <hr>
-        <label>Color del filtro: </label>
-        <input id="color_name" placeholder="Introduce el color del filtro">
-        <br><br>
-        <button onclick="filter_tint()" class="bnt btn-warning">Aplicar filtro</button>
-        <br><br>
-        <button onclick="take_snapshot()" class="bnt btn-success">Tomar captura</button>
-    </div>
-
+        <button onclick="take_snapshot()" class="btn btn-success">Toma una instantanea</button>
+    </center>
 
 <script src="main.js"></script>
-
 </body>
 
 </html>

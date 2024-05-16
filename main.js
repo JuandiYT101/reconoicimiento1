@@ -1,45 +1,42 @@
-function preload(){
+noseX = 0;
+noseY = 0;
 
+
+function preload(){
+clown_nose = loadImage('https://i.postimg.cc/fyqKWbnb/mustache-png.webp');
 }
 
 function setup(){
-    canvas = createCanvas(640, 480);
-    canvas.position(110, 250);
+    canvas = createCanvas(300, 300);
+    canvas.center();
     video = createCapture(VIDEO);
     video.hide();
+    video.size(300,300);
 
-    tint_color = "";
+
+    poseNet = ml5.poseNet(video, modelLoaded);
+    poseNet.on('pose',gotPoses);
 }
 
+function modelLoaded(){
+    console.log('PoseNet está inicializando');
+}
 function draw(){
-    image(video, 0, 0, 640, 480);
-    tint(tint_color);
+    image(video, 0, 0, 300, 300);
+    image(clown_nose, noseX,noseY, 30, 30);
 }
+function gotPoses(results){
+    if(results.length > 0) { console.log(results); 
+        noseX = results[0].pose.nose.x-15;
+         noseY = results[0].pose.nose.y -1;
+         }
+         }
+
+
+
+
 
 function take_snapshot(){
     save('student.png');
 }
 
-function filter_tint(){
-    tint_color = document.getElementById("color_name").value;
-}
-
-
-
-function setup() {
-  createCanvas(500,500);
-
-  background(200);
-
-  // White ellipse.
-  ellipseMode(RADIUS);
-  fill(255);
-  ellipse(100, 100, 30, 30);
-
-  // Gray ellipse.
-  ellipseMode(CENTER);
-  fill(100);
-  ellipse(100, 100, 30, 30);
-
-  
-}
